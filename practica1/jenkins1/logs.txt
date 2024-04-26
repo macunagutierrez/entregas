@@ -1,0 +1,73 @@
+Lanzada por el usuario admin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins  in C:\ProgramData\Jenkins\.jenkins\workspace\P24\test1
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Hello)
+[Pipeline] echo
+Hello World
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (GIT)
+[Pipeline] echo
+Download git repository
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/macunagutierrez/helloworld.git
+ > git.exe init C:\ProgramData\Jenkins\.jenkins\workspace\P24\test1 # timeout=10
+Fetching upstream changes from https://github.com/macunagutierrez/helloworld.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.44.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/macunagutierrez/helloworld.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe config remote.origin.url https://github.com/macunagutierrez/helloworld.git # timeout=10
+ > git.exe config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+Checking out Revision 2c60ee9f0ba66cdd9d75a834945bd4f92f7b724a (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 2c60ee9f0ba66cdd9d75a834945bd4f92f7b724a # timeout=10
+ > git.exe branch -a -v --no-abbrev # timeout=10
+ > git.exe checkout -b master 2c60ee9f0ba66cdd9d75a834945bd4f92f7b724a # timeout=10
+Commit message: "FIRST INITAL COMMIT"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Comprobaciones)
+[Pipeline] echo
+Comprobaciones de descarga de repositorio
+[Pipeline] echo
+C:\ProgramData\Jenkins\.jenkins\workspace\P24\test1
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\P24\test1>dir
+ El volumen de la unidad C no tiene etiqueta.
+ El n�mero de serie del volumen es: 9427-9190
+
+ Directorio de C:\ProgramData\Jenkins\.jenkins\workspace\P24\test1
+
+26/04/2024  18:23    <DIR>          .
+26/04/2024  18:23    <DIR>          ..
+26/04/2024  18:23                40 .gitignore
+26/04/2024  18:23    <DIR>          app
+26/04/2024  18:23               175 pytest.ini
+26/04/2024  18:23               418 README.md
+26/04/2024  18:23    <DIR>          test
+               3 archivos            633 bytes
+               4 dirs  450.298.974.208 bytes libres
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] echo
+Stage Build no hace nada
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
