@@ -1,0 +1,94 @@
+Lanzada por el usuario admin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins  in C:\ProgramData\Jenkins\.jenkins\workspace\P24\test2
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Hello)
+[Pipeline] echo
+Hello World
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (GIT)
+[Pipeline] echo
+Download git repository
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\P24\test2\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/macunagutierrez/helloworld.git # timeout=10
+Fetching upstream changes from https://github.com/macunagutierrez/helloworld.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.44.0.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/macunagutierrez/helloworld.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+Checking out Revision 2c60ee9f0ba66cdd9d75a834945bd4f92f7b724a (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 2c60ee9f0ba66cdd9d75a834945bd4f92f7b724a # timeout=10
+ > git.exe branch -a -v --no-abbrev # timeout=10
+ > git.exe branch -D master # timeout=10
+ > git.exe checkout -b master 2c60ee9f0ba66cdd9d75a834945bd4f92f7b724a # timeout=10
+Commit message: "FIRST INITAL COMMIT"
+ > git.exe rev-list --no-walk 2c60ee9f0ba66cdd9d75a834945bd4f92f7b724a # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Comprobaciones)
+[Pipeline] echo
+Comprobaciones de descarga de repositorio
+[Pipeline] echo
+C:\ProgramData\Jenkins\.jenkins\workspace\P24\test2
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\P24\test2>dir
+ El volumen de la unidad C no tiene etiqueta.
+ El n�mero de serie del volumen es: 9427-9190
+
+ Directorio de C:\ProgramData\Jenkins\.jenkins\workspace\P24\test2
+
+26/04/2024  20:00    <DIR>          .
+26/04/2024  20:00    <DIR>          ..
+26/04/2024  18:38                40 .gitignore
+26/04/2024  20:00    <DIR>          .pytest_cache
+26/04/2024  20:00    <DIR>          app
+26/04/2024  18:38               175 pytest.ini
+26/04/2024  18:38               418 README.md
+26/04/2024  18:38    <DIR>          test
+               3 archivos            633 bytes
+               5 dirs  450.716.078.080 bytes libres
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] echo
+Stage Build no hace nada
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (TEST unitarios)
+[Pipeline] bat
+
+C:\ProgramData\Jenkins\.jenkins\workspace\P24\test2>set PYTHONPATH=C:\ProgramData\Jenkins\.jenkins\workspace\P24\test2 
+
+C:\ProgramData\Jenkins\.jenkins\workspace\P24\test2>python --version 
+Python 3.11.9
+
+C:\ProgramData\Jenkins\.jenkins\workspace\P24\test2>python -m pytest test/unit 
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-8.1.1, pluggy-1.5.0
+rootdir: C:\ProgramData\Jenkins\.jenkins\workspace\P24\test2
+configfile: pytest.ini
+collected 11 items
+
+test\unit\calc_test.py .........                                         [ 81%]
+test\unit\util_test.py ..                                                [100%]
+
+============================= 11 passed in 0.03s ==============================
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
